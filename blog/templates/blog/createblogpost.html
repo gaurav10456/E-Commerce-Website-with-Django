@@ -1,0 +1,76 @@
+{% extends 'blog/basic.html' %}
+
+{% block title%} Create BlogPost {% endblock %}
+{% block body %}
+
+<div class="container my-3">
+
+<h3 class="masthead-brand"> Create BlogPost </h3>
+<form method="post" action="/createblogpost">
+{% csrf_token %}
+  <div class="form-group my-3">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" aria-describedby="title">
+  </div>
+
+  <div class="form-group my-3">
+    <label for="author">Author</label>
+    <input type="text" class="form-control" id="author" name="author" aria-describedby="author">
+  </div>
+
+  <div class="form-group my-3">
+    <label for="chead0">Chead0</label>
+    <input type="text" class="form-control" id="chead0" name="chead0" aria-describedby="chead0">
+  </div>
+
+  <div class="form-group my-3">
+    <label for="head1">Head1</label>
+    <input type="text" class="form-control" id="head1" name="head1" aria-describedby="head1">
+  </div>
+
+  <div class="form-group my-3">
+    <label for="chead1">Chead1</label>
+    <input type="text" class="form-control" id="chead1" name="chead1" aria-describedby="chead1">
+  </div>
+
+  <div class="form-group my-3">
+    <label for="head2">Head2</label>
+    <input type="text" class="form-control" id="head2" name="head2" aria-describedby="head2">
+  </div>
+
+  <div class="form-group my-3">
+    <label for="chead2">Chead2</label>
+    <input type="text" class="form-control" id="chead2" name="chead2" aria-describedby="chead2">
+  </div>
+
+  <div class="md-form my-4">
+  <label for="date-picker-example">Pub date</label>
+  <input id="datepicker" width="476" name='date' />
+    <script>
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            uiLibrary: 'bootstrap4'
+        });
+         
+    </script>
+    <br>
+</div>
+<br>
+
+  <div class="input-group mb-2">
+  <div class="input-group-prepend">
+
+  </div>
+    <div class="custom-file mb-3">
+      <input type="file" class="custom-file-input" id="customFile" name="filename">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+</div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+ 
+
+
+{% endblock %}

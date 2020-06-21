@@ -1,0 +1,16 @@
+{% extends 'blog/basic.html' %}
+
+{% block title%} add {% endblock %}
+{% block body %}
+<div class="form-group mx-5">
+  <form action="apply" method="POST">
+    {%csrf_token%}
+    <label for="exampleFormControlTextarea1">Large Textarea</label>
+    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1"  name="templa" rows="20"></textarea>
+    <button type="button submit" class="btn btn-success btn-lg float-right my-4 ">Apply Template</button>
+    <button type="button" class="btn btn-danger btn-lg float-right my-4 mx-2">Preview</button>
+  </form>
+</div>
+
+
+{% endblock body%}

@@ -1,0 +1,45 @@
+{% extends 'blog/basic.html' %}
+{% block title %} Blog {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}
+{% load static %}
+
+<div class="container">
+<div class="py-5 text-center">
+    <h2>Checkout Our Popular BlogPost</h2>
+    <p class="lead">A blog is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries.</p>
+  </div>
+<div class="row my-4">
+    {% for item in myposts %}
+
+        <div class="col-md-6">
+            <div
+                class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"> Article by {{item.author}}</strong>
+                    <h3 class="mb-0">{{item.title | truncatechars:20}}</h3>
+                    <p class="card-text mb-auto">{{item.head1 | truncatechars:30}}</p>
+                    <p class="font-italic my-2" class="card-text mb-auto">{{item.chead1 | truncatechars:50}}</p>
+                    <h6><p class="card-text mb-auto">{{item.pub_date}}</p></h6>
+                    <a href="/blogpost/{{item.post_id}}" class="stretched-link my-1">Continue reading</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="/media/{{item.thumbnail}}" class="bd-placeholder-img" width="200" height="265"
+                        aria-label="Placeholder: Thumbnail"/>
+
+                </div>
+            </div>
+        </div>
+{% if forloop.counter|divisibleby:2 %}
+    </div><div class="row my-2">
+
+
+    {% endif %}
+
+    {% endfor %}
+
+
+</div>
+
+
+{% endblock %}
